@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion"; // Import framer-motion for animations
 
 const Footer = () => {
   return (
     <div className=" bg-backgroundColor text-white rounded-t-3xl mt-8 md:mt-0">
-      <div className="flex flex-col md:flex-row justify-between p-8 md:px-32 px-5">
+      <motion.div
+        className="flex flex-col md:flex-row justify-between p-8 md:px-32 px-5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }} // Fade in effect
+      >
         <div className=" w-full md:w-1/4">
           <h1 className=" font-semibold text-xl pb-4">Gov Hospital</h1>
           <p className=" text-sm">
@@ -91,14 +97,19 @@ const Footer = () => {
             </Link>
           </nav>
         </div>
-      </div>
-      <div>
-        <p className=" text-center py-4">
+      </motion.div>
+      <motion.div
+        className="text-center py-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }} // Fade in effect with a slight delay
+      >
+        <p>
           @copyright developed by
           <span className=" text-hoverColor"> Sachin & Adit</span> | All
           rights reserved
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
